@@ -1,39 +1,92 @@
-# 这是一级标题
+### **个人信息**                          
 
-### InputStream重复读取
+王先生 | 男 | 28岁
 
-**标准的 InputStream 本身不支持重复读取**，但可以通过一些方法实现重复读取的效果。InputStream 是单向数据流，读取位置会随着读取操作不断前进，无法回退到之前的位置。
+157****7387
 
-将流数据读取到字节数组中，然后多次创建ByteArrayInputStream。
+wang*****387@163.com
 
-```java
-public class RepeatableInputStream {
-    private final byte[] data;
-    private int position = 0;
-    
-    public RepeatableInputStream(InputStream inputStream) throws IOException {
-        this.data = inputStream.readAllBytes();
-        inputStream.close();
-    }
-    
-    public InputStream getNewStream() {
-        return new ByteArrayInputStream(data);
-    }
-    
-    public void reset() {
-        this.position = 0;
-    }
-    
-    public int read() {
-        if (position >= data.length) {
-            return -1;
-        }
-        return data[position++] & 0xFF;
-    }
-    
-    public byte[] getData() {
-        return data.clone();
-    }
-}
-```
+5年Java开发 | 求职意向：Java开发
+
+泰山学院 | 本科 | 电子信息科学与技术
+
+
+
+### **个人技能**                          
+
+熟练掌握Java基础知识，熟练运用集合、多线程、JVM内存模型等内容
+
+熟练使用MySQL，对数据库优化、事务、索引等有深入理解
+
+熟练使用Docker、Docker Compose进行项目及其环境的搭建
+
+熟悉Spring、Spring Boot、MyBatis等开源框架
+
+熟悉 Redis，RabbitMQ等中间件
+
+掌握 Vue、JavaScript等前端语言，可基于开源组件进行简单页面的开发
+
+
+
+### **工作经历**                          
+
+**北京国联视讯信息技术股份有限公司**  2022.11-2025.09
+
+担任**Java开发工程师**
+
+负责公司中台项目的gateway模块、基础信息服务模块的开发与维护，通过动态路由提高其他服务上线效率，维护开发环境服务器解决同事开发业务系统时需要额外启动中台问题。
+
+负责公司标识解析平台的开发与维护，通过统一管理保障数据唯一性，有效提升管理效率。
+
+负责公司嗖嗖商城小城的开发，以及测试环境的部署，对接微信支付以及公司内部erp系统。
+
+
+
+**北京金水永利科技有限公司**  2020.07-2022.09
+
+担任**Java开发工程师**
+
+根据需求文档进行模块的设计，按照版本迭代计划输出稳定、可靠、高效的代码实现。
+
+负责水环境质量自动监测系统、监测能力管理子系统的接口开发、前端对接以及测试阶段的bug修复。
+
+
+
+### **项目经历**                          
+
+**中台项目**
+
+1. **项目概述**：中台项目作为公司办公平台入口，基于 Gateway 将前端请求按路由转发到对应后端服务；提供基础信息管理（人员、菜单、角色）并对外暴露接口，承担鉴权与权限校验职责，确保系统统一访问与权限控制。
+
+2. **责任描述**：负责开发环境服务器维护与联调支持，搭建动态路由转发机制：将基础模块请求转发至服务器、业务模块请求转发到本地，参与 Gateway 模块与基础信息模块的功能开发、权限校验、路由配置。
+
+3. **技术要点**：Spring Boot、MySQL、Docker Compose、gateway。
+
+ 
+
+**标识解析平台**
+
+1. **项目概述**：为公司内部实体（公司、部门、人员、资产、商品、仓库等）生成唯一标识码。基于策略模式按类型动态选择发码/解码实现，支持运行时根据前端参数加载对应实现类，便于后续扩展新类型。
+
+2. **责任描述**：负责整体业务开发与维护，策略模式设计；实现了“开闭”良好的扩展方式，使新增发码类型仅需新增实现类并注册，降低后续维护成本。
+
+3. **技术要点**：Spring Boot、MySQL。
+
+ 
+
+**嗖嗖商城小程序**
+
+1. **项目概述**：基于微信小程序构建的本地门店电商：用户可申请成为店铺、按地理位置选择附近门店下单并预约安装；到店核销、管理后台可审核店铺资质，店家可管理商品与订单。
+
+2. **责任描述**：负责店铺模块开发，包含店铺申请、资质审核流程与店铺运营管理接口，对接公司内部 ERP 系统以同步商品与库存信息，集成微信支付。
+
+3. **技术要点**：Spring Boot、MySQL、Docker Compose、rabbitMQ。
+
+ 
+
+### 其他                     
+
+计算机技术与软件专业技术资格 – 中级 - 软件设计师
+
+ 
 
